@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>LinK 题单 - RanaCode</title>
+    <link rel="stylesheet" href="LinKStyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11/build/styles/atom-one-dark.min.css">
+    <link rel="icon" href="../Sample/RanaBPM/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11/build/highlight.min.js"></script>
+    <script>
+        // MathJax 配置
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true,
+                macros: {
+                    "&": "{\\unicode{x26}}"
+                }
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <script src="LinKTool.js"></script>
+
+    <div class="main-container">
+        <!-- 顶部导航条 -->
+        <div class="top-bar">
+            <a href="../index.html" class="back-link">返回首页</a>
+            <span class="page-title">LinK 题单</span>
+            <span class="page-subtitle">算法题解列表</span>
+        </div>
+
+        <!-- 主体两栏布局 -->
+        <div class="content-wrapper">
+            <!-- 左侧列表区域 (2/3) -->
+            <div class="left-panel">
+                <div class="list-container" id="listContainer">
+                    <!-- JS 动态生成列表卡片 -->
+                </div>
+                <div class="empty-hint" id="emptyHint" style="display:none;">
+                    没有找到匹配的题目
+                </div>
+            </div>
+
+            <!-- 右侧搜索区域 (1/3) -->
+            <div class="right-panel">
+                <div class="search-card">
+                    <div class="search-label">搜索题目</div>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="search-input"
+                        placeholder="输入题目标题关键字..."
+                        autocomplete="off"
+                    >
+                    <div class="search-hint" id="searchHint">
+                        共 <span id="totalCount">0</span> 道题目
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

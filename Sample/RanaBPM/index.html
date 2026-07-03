@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>RanaBPM - 首页 | RnLamsuly的音游主页</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="logo.png">
+</head>
+<body onload="timeEvent()">
+<script src="tool.js"></script>
+<div class="main-container">
+    <div class="hero-section">
+        <h1 class="hero-title" id="welcome">你好！<br>欢迎来到RnLamsuly的音游主页！</h1>
+        <div class="hero-greeting" id="timer">
+            现在是-年-月-日-时-分
+        </div>
+        
+    </div>
+
+    <div class="middle-dashboard">
+        <div class="glass-card left-card">
+            <div class="card-content" onclick="location.href='chart/list.html'">
+                <div class="card-title">RnLamsuly的自制谱工坊</div>
+                <div class="preview-area" id="chartPreviewTrigger">
+                    <div class="preview-placeholder">点击进入自制谱仓库</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card right-card">
+            <div class="card-content" onclick="location.href='video/list.html'">
+                <div class="card-title">RnLamsuly的手元混剪频道</div>
+                <div class="preview-area" id="scorePreviewTrigger">
+                    <div class="preview-placeholder">点击进入手元混剪列表</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro-wrapper">
+        <div class="intro-collapsible">
+            <div class="intro-content">
+                <div class="intro-summary">
+                    <span>RnLamsuly</span>
+                    <span style="font-weight:normal;"> | 自我介绍</span>
+                </div>
+            </div>
+            <div class="intro-full">
+                <div class="intro-bio">
+                    <iframe 
+                    src="https://www.bilibili.com/opus/1198964279913480197?spm_id_from=333.1387.0.0" 
+                    style="width: 100%; height: 600px; border: none; border-radius: 12px;"
+                    frameborder="0">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

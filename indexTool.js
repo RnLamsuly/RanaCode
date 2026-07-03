@@ -1,0 +1,34 @@
+function timeEvent() {
+    const now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth() + 1;
+    var date = now.getDate();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+
+    // 定义欢迎语
+    var welcome = '';
+    if (hours >= 5 && hours < 7) {
+        welcome = '早上好！<br>欢迎来到RanaCode！';
+    } else if (hours >= 7 && hours < 12) {
+        welcome = '上午好！<br>欢迎来到RanaCode！';
+    } else if (hours >= 12 && hours < 14) {
+        welcome = '中午好！<br>欢迎来到RanaCode！';
+    } else if (hours >= 14 && hours < 18) {
+        welcome = '下午好！<br>欢迎来到RanaCode！';
+    } else if (hours >= 18 && hours < 22) {
+        welcome = '晚上好！<br>欢迎来到RanaCode！';
+    } else {
+        welcome = '夜深了。欢迎来到RanaCode！';
+    }
+
+    var timer = "现在是" + year + "年" + month + "月" + date + "日" + hours + "时" + minutes + "分";
+
+    document.getElementById('welcome').innerHTML = welcome;
+    document.getElementById('timer').innerHTML = timer;
+
+    setTimeout(timeEvent, 1000);
+}
+
+// 启动定时器
+timeEvent();

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>RanaBPM - 谱面列表 | RnLamsuly的音游主页</title>
+    <link rel="stylesheet" href="chartList.css">
+    <link rel="icon" href="logo.png">
+</head>
+<body>
+<div class="chart-library">
+    <!-- 筛选栏：标题 + 多选按钮组 -->
+    <div class="filter-section">
+        <div class="filter-header">
+            <div class="filter-title">谱面列表</div>
+            <div class="reset-btn" id="resetFiltersBtn">✖ 重置</div>
+        </div>
+        <div class="filter-group" id="filterGroup">
+            <span style="color:#bbc5a0; font-size:0.75rem; align-self:center;">筛选</span>
+            <button class="filter-chip" data-filter="Phigros">Phigros</button>
+            <button class="filter-chip" data-filter="Key">Key</button>
+            <button class="filter-chip" data-filter="RM">RM</button>
+        </div>
+        <div style="font-size: 0.7rem; margin-top: 12px; color:#95a5a5; padding-left: 6px;">
+            点击下面列表谱面即可下载
+        </div>
+    </div>
+
+    <!-- 谱面列表容器 (动态渲染JS) -->
+    <div id="chartsList" class="charts-container">
+        <!-- 卡片会由js动态生成，保证与筛选逻辑联动 -->
+    </div>
+<script src="tool.js"></script>
+</div>
+</body>
+</html>
