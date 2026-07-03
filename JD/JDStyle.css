@@ -229,7 +229,7 @@ body {
 /* 题解内容样式 */
 .solution-content {
     color: #1e2f35;
-    line-height: 2.5;
+    line-height: 1.35;
     font-size: 1.35rem;
 }
 
@@ -260,7 +260,7 @@ body {
 }
 
 .solution-content p {
-    margin: 0.5rem 0;
+    margin: 1.2rem 0;
 }
 
 .solution-content a {
@@ -284,13 +284,14 @@ body {
 }
 
 .solution-content pre {
-    background: rgba(30, 42, 46, 0.88);
-    backdrop-filter: blur(6px);
+    background: #f0ece4;
     border-radius: 0.8rem;
     padding: 1.2rem;
     overflow-x: auto;
     margin: 0.8rem 0;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .solution-content pre code {

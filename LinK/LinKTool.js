@@ -61,7 +61,7 @@ function renderList(problems) {
         html += '    <button class="expand-btn" onclick="toggleExpand(\'' + p.id + '\', \'' + escapeHtml(p.filename) + '\')">展开</button>';
         html += '  </div>';
         html += '  <div class="expand-area" id="expand-' + p.id + '">';
-        html += '    <div class="expand-inner" id="inner-' + p.id + '"></div>';
+        html += '    <div class="expand-inner solution-content" id="inner-' + p.id + '"></div>';
         html += '  </div>';
         html += '</div>';
     }
@@ -154,7 +154,7 @@ function renderMarkdown(mdText) {
     if (typeof marked !== 'undefined') {
         // 配置 marked
         marked.setOptions({
-            breaks: false,
+            breaks: true,
             gfm: true
         });
 
