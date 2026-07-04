@@ -1,15 +1,16 @@
 # LinK08 四数之和
+
 [题目链接](http://xmuoj.com/contest/362/problem/LinK08)
 
 ## 思路
 
-双重循环枚举前两个数 + 双指针求解后两个数
+双重循环枚举前两个数 + 双指针求解后两个数。
 
 ---
 
-## AC代码
+## AC 代码
+
 ```cpp
-#include <iostream>
 #include <iostream>
 const int MAXN=1e6;
 int a[MAXN];
@@ -22,11 +23,11 @@ int main()
 	{
 		std::cin>>a[i];
 	}
-	
+
 	for(int l=0;l<n-3;++l)
 	{
 		for(int k=l+1;k<n-2;++k)
-		{	
+		{
 			int i=k+1,j=n-1;
 			while(i<=j)
 			{

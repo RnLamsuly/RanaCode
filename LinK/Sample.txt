@@ -1,0 +1,15 @@
+# LinK
+[题目链接](http://xmuoj.com/contest/362/problem/LinK)
+
+## 思路
+
+---
+
+## 注意
+
+---
+
+## AC代码
+```cpp
+
+```
