@@ -40,7 +40,7 @@ def update_filelist(dir_path: str) -> bool:
 
     if old_list == md_files:
         print(f"  [不变] {dir_path}/  共 {len(md_files)} 道题，无需更新")
-        return False
+        return False 
 
     # 写回
     with open(json_path, "w", encoding="utf-8") as fh:
