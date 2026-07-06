@@ -30,6 +30,89 @@
     <style>
         .footer-link { color: inherit; text-decoration: none; }
         .footer-link:hover { color: #90EE90; }
+
+        /* ========== 题目跳转卡片 ========== */
+        .jump-card {
+            margin-top: 1.5rem;
+        }
+
+        .jump-desc {
+            font-size: 0.9rem;
+            color: rgba(30, 47, 53, 0.7);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .jump-input-row {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .jump-prefix {
+            font-size: 0.95rem;
+            font-weight: 650;
+            color: #1e2f35;
+            background: rgba(255, 255, 255, 0.35);
+            padding: 0.7rem 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-right: none;
+            border-radius: 0.8rem 0 0 0.8rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .jump-input {
+            flex: 1;
+            min-width: 0;
+            padding: 0.7rem 0.6rem;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: none;
+            border-right: none;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(6px);
+            color: #1e2f35;
+            outline: none;
+            transition: all 0.25s ease;
+            font-family: inherit;
+        }
+
+        .jump-input::placeholder {
+            color: rgba(30, 47, 53, 0.4);
+        }
+
+        .jump-input:focus {
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        .jump-input:focus ~ .jump-btn {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(91, 200, 168, 0.15);
+        }
+
+        .jump-btn {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: rgba(91, 200, 168, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 0 0.8rem 0.8rem 0;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+            font-family: inherit;
+        }
+
+        .jump-btn:hover {
+            background: rgba(91, 200, 168, 0.75);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(91, 200, 168, 0.25);
+        }
     </style>
 </head>
 <body>
@@ -68,6 +151,22 @@
                     >
                     <div class="search-hint" id="searchHint">
                         共 <span id="totalCount">0</span> 道题目
+                    </div>
+                </div>
+
+                <div class="search-card jump-card">
+                    <div class="search-label">题目跳转</div>
+                    <p class="jump-desc">如果你没有XMUOJ的账号，可以在下方输入题目编号以查看复刻题目</p>
+                    <div class="jump-input-row">
+                        <span class="jump-prefix">JD</span>
+                        <input
+                            type="text"
+                            id="jumpInput"
+                            class="jump-input"
+                            placeholder="(例如: 01)"
+                            autocomplete="off"
+                        >
+                        <button id="jumpBtn" class="jump-btn">跳转</button>
                     </div>
                 </div>
 

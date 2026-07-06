@@ -7,6 +7,7 @@ var loadedContent = {};         // 已加载的题解内容缓存
 document.addEventListener('DOMContentLoaded', function () {
     fetchFileList();
     bindSearchEvent();
+    bindJumpEvent();
 });
 
 // ========== 获取文件列表 ==========
@@ -258,4 +259,32 @@ function escapeHtml(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
+}
+
+// ========== 题目跳转 ==========
+function bindJumpEvent() {
+    var jumpBtn = document.getElementById('jumpBtn');
+    var jumpInput = document.getElementById('jumpInput');
+
+    // 点击跳转按钮
+    jumpBtn.addEventListener('click', function () {
+        doJump(jumpInput);
+    });
+
+    // 回车键跳转
+    jumpInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+            doJump(jumpInput);
+        }
+    });
+}
+
+function doJump(input) {
+    var num = input.value.trim();
+    if (num === '') {
+        alert('请输入题目编号');
+        return;
+    }
+    var url = '../Web crawler/Problem/JD' + num + '.html';
+    window.open(url, '_blank');
 }

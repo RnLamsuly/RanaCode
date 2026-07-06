@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>LinK42 - 击杀黄金蛋糕人马 | RanaCode</title>
+    <link rel="stylesheet" href="../../shared/solutionStyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11/build/styles/github.min.css">
+    <link rel="icon" href="../../Sample/RanaBPM/logo.png">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11/build/highlight.min.js"></script>
+    <script>
+        // MathJax 配置
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true,
+                macros: { "&": "{\\unicode{x26}}" }
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        /* ===== 题目页面专属样式（补充 solutionStyle.css） ===== */
+
+        .top-bar {
+            position: sticky;
+            top: 1rem;
+            z-index: 10;
+        }
+
+        .problem-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px) saturate(160%);
+            -webkit-backdrop-filter: blur(12px) saturate(160%);
+            border-radius: 1.2rem;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            padding: 2rem 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #f36f7c, #5bc8a8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        /* 元信息标签栏 */
+        .meta-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .meta-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1e2f35;
+            background: rgba(255, 255, 255, 0.45);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            white-space: nowrap;
+            backdrop-filter: blur(4px);
+        }
+
+        .meta-tag:first-child {
+            background: rgba(91, 200, 168, 0.3);
+        }
+
+        .meta-tag:nth-child(2) {
+            background: rgba(243, 111, 124, 0.22);
+        }
+
+        /* 板块标题 */
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 2rem 0 0.8rem;
+            color: #2c4b3a;
+            border-left: 3px solid var(--accent-green);
+            padding-left: 0.7rem;
+        }
+
+        /* 样例区域 */
+        .sample-group {
+            margin: 1.2rem 0;
+        }
+
+        .sample-group h4 {
+            font-size: 0.95rem;
+            font-weight: 650;
+            color: #3a5a48;
+            margin-bottom: 0.5rem;
+        }
+
+        .sample-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .sample-col {
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+        }
+
+        .sample-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: rgba(91, 200, 168, 0.55);
+            padding: 0.3rem 1rem;
+            letter-spacing: 0.04em;
+        }
+
+        .sample-col pre {
+            margin: 0;
+            padding: 0.8rem 1rem;
+            background: transparent;
+            border-radius: 0;
+            border: none;
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #1e2f35;
+        }
+
+        .sample-col pre code {
+            background: none;
+            padding: 0;
+            font-size: inherit;
+            color: inherit;
+        }
+
+        /* 提示区域 */
+        .hint-block {
+            background: rgba(243, 111, 124, 0.1);
+            border-left: 3px solid var(--accent-pink);
+            margin: 1rem 0;
+            padding: 1rem 1.2rem;
+            border-radius: 0 0.8rem 0.8rem 0;
+        }
+
+        /* 页脚 */
+        .page-footer {
+            text-align: center;
+            font-size: 0.85rem;
+            padding: 20px 0;
+            color: #FFFFFF;
+        }
+
+        .footer-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            color: #90EE90;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .problem-card {
+                padding: 1.2rem 1rem;
+            }
+            .problem-title {
+                font-size: 1.4rem;
+            }
+            .sample-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- 顶部导航条 -->
+        <div class="top-bar">
+            <a href="../../index.html" class="back-link">返回首页</a>
+            <span class="page-title">LinK42</span>
+            <span class="page-subtitle">击杀黄金蛋糕人马</span>
+        </div>
+
+        <!-- 题目内容卡片 -->
+        <div class="problem-card">
+            <div class="solution-content">
+                <h1 class="problem-title">LinK42 - 击杀黄金蛋糕人马</h1>
+
+                <div class="meta-tags">
+        <span class="meta-tag">⏱ 1000 ms</span>
+        <span class="meta-tag">📦 256 MB</span>
+        <span class="meta-tag">📊 High</span>
+        <span class="meta-tag">📝 100 分</span>
+        <span class="meta-tag">📂 xmu</span>
+        <span class="meta-tag">💻 C, C++, Python3</span>
+                </div>
+
+                <div class="section-title">题目描述</div>
+                <p>在海拉鲁大陆冒险，没有绝佳的剑法+想象力是不可能存活下来的。</p><p>这不，林克遇到了一个特别巨大的敌人——黄金蛋糕人马（莱尼尔的变种）</p><p><span style="color: rgb(51, 51, 51);">这黄金蛋糕人马</span>长相非常特别，没有脚没有手没有嘴巴没有头，整个身材就是一个大矩形（喂喂，这不就是黄金莱尼尔吗？）</p><p><img alt="image.png" src="/public/upload/c566399d7b.png" width="863" height="462" /><br />它的长和宽分别是整数w、h。</p><p>林克举起大师之剑，挥向<span style="color: rgb(51, 51, 51);">黄金蛋糕人马</span>，要将其切成m块矩形小块打包走，分给自己的朋友（每块都必须是矩形、且长和宽均为整数）。</p><p>大师之剑无比锐利，每一斩带出的剑气能将<span style="color: rgb(51, 51, 51);">黄金蛋糕人马</span>劈成两半（形成两个小矩形蛋糕）。</p><p>经过m-1斩，<span style="color: rgb(51, 51, 51);">黄金蛋糕人马</span>居然被劈成m块小蛋糕（喂喂，你的想象力也太丰富了，明明切不开好吗？）</p><p>请计算：最后得到的m块小蛋糕中，最大的那块蛋糕的面积下限。<br /><br /></p><p>假设w= 4,h= 4,m= 4，则下面的斩击可使得其中最大蛋糕块的面积最小。(十字斩)</p><p><img src="http://media.openjudge.cn/images/upload/1372385654.gif" /><br /></p><p><span style="color: rgb(35, 31, 23);">假设</span>w<span style="color: rgb(35, 31, 23);">= 4,h= 4,m= 3</span><span style="color: rgb(35, 31, 23);">，则下<span style="color: rgb(51, 51, 51);">面的斩击可</span>使得其中最大蛋糕块的面积最小</span><span style="color: rgb(35, 31, 23);">:.(二连斩)</span><br /></p><p><span style="color: rgb(35, 31, 23);"><img src="http://media.openjudge.cn/images/upload/1372385663.gif" /><br /></span></p>
+
+                <div class="section-title">输入格式</div>
+                <p><span style="color: rgb(35, 31, 23);">共有多行，每行表示一个测试案例。</span></p><p><span style="color: rgb(35, 31, 23);">每行是三个用空格分开的整数w, h, m ，其中1 ≤ w, h, m ≤ 20 ， m ≤ wh.</span></p><p><span style="color: rgb(35, 31, 23);">当 w = h = m = 0 时不需要处理，表示输入结束。</span><br /></p>
+
+                <div class="section-title">输出格式</div>
+                <p><span style="color: rgb(35, 31, 23);">每个测试案例的结果占一行，输出一个整数，表示最大蛋糕块的面积下限。</span><br /></p>
+
+                <div class="section-title">样例</div>
+                
+                <div class="sample-group">
+                    <h4>样例 1</h4>
+                    <div class="sample-row">
+                        <div class="sample-col">
+                            <div class="sample-label">输入</div>
+                            <pre><code>4 4 4
+4 4 3
+0 0 0</code></pre>
+                        </div>
+                        <div class="sample-col">
+                            <div class="sample-label">输出</div>
+                            <pre><code>4
+6</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title">提示</div>
+                <div class="hint-block"><p><a href="https://www.bilibili.com/video/BV1ti4y1b7s1" target="_blank">Andy讲解</a><br /></p><p>改编自《<a href="https://www.bilibili.com/video/BV1Zb411q7iY?p=33" target="_blank">分蛋糕</a>》</p></div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        Developed by <a href="https://space.bilibili.com/1896204321" target="_blank" class="footer-link">RnLamsuly</a>
+        &middot; 爬取自 XMUOJ Contest #362
+        &middot; <a href="https://github.com/RnLamsuly/RanaCode" target="_blank" class="footer-link">Repositories</a>
+    </footer>
+</body>
+</html>
