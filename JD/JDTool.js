@@ -184,6 +184,9 @@ function renderMarkdown(mdText) {
             html = html.replace('%%MATHBLOCK' + i + '%%', delimiter + block.content + delimiter);
         }
 
+        // 5. 让所有链接在新标签页打开
+        html = html.replace(/<a /g, '<a target="_blank" rel="noopener noreferrer" ');
+
         return html;
     }
 
