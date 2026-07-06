@@ -142,7 +142,7 @@ $$
 \boxed{\text{递归必在有限步内终止，且步数最多不超过初始 }\operatorname{popcount}\text{ 之和}}
 $$
 
-> 最坏情况下时间复杂度为 $O(\log N)$，即每次消除一个二进制上的进位。
+> 最坏情况下[时间复杂度](https://oi-wiki.org/basic/complexity/)为 $O(\log N)$，即每次消除一个二进制上的进位。
 
 ---
 

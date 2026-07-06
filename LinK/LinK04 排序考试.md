@@ -3,7 +3,7 @@
 
 ## 思路
 
-快速排序是一种常用的排序方法，其平均时间复杂度为 $O(n \log n)$。
+[快速排序](https://oi-wiki.org/basic/quick-sort/)是一种常用的排序方法，其平均[时间复杂度](https://oi-wiki.org/basic/complexity/)为 $O(n \log n)$。
 
 快速排序采用分治思想，通过三个步骤完成：
 
