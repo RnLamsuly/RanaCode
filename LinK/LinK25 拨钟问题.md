@@ -240,3 +240,51 @@ int main() {
     return 0;
 }
 ```
+
+下面的代码是手动求解 $M^-1$ 的解法，将时间复杂度降低到了 $O(1)$ 。
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int invM[9][9] = {
+    {3, 2, 3, 2, 2, 1, 3, 1, 0},
+    {3, 3, 3, 3, 3, 3, 2, 0, 2},
+    {3, 2, 3, 1, 2, 2, 0, 1, 3},
+    {3, 3, 2, 3, 3, 0, 3, 3, 2},
+    {3, 2, 3, 2, 1, 2, 3, 2, 3},
+    {2, 3, 3, 0, 3, 3, 2, 3, 3},
+    {3, 1, 0, 2, 2, 1, 3, 2, 3},
+    {2, 0, 2, 3, 3, 3, 3, 3, 3},
+    {0, 1, 3, 1, 2, 2, 3, 2, 3}
+};
+ 
+int main() {
+    int clock[9], b[9], x[9] = {0};
+    
+    for (int i = 0; i < 9; i++) {
+        cin >> clock[i];
+        b[i] = (4 - clock[i]) % 4;
+    }
+    
+    // x = invM * b (mod 4)
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            x[i] = (x[i] + invM[i][j] * b[j]) % 4;
+        }
+    }
+    
+    // 输出
+    bool first = true;
+    for (int i = 0; i < 9; i++) {
+        for (int k = 0; k < x[i]; k++) {
+            if (!first) cout << " ";
+            cout << i + 1;
+            first = false;
+        }
+    }
+    cout << endl;
+    
+    return 0;
+}
+```
