@@ -3,7 +3,7 @@
 
 **[归并排序](https://oi-wiki.org/basic/merge-sort/)**：与[快速排序](https://oi-wiki.org/basic/quick-sort/)类似，归并排序同样采用**分治**思想。但两种排序的主要过程却截然不同。快速排序中排序的操作主要在"分"中进行，而归并排序中主要在"合"中进行。
 
-归并排序的[时间复杂度](https://oi-wiki.org/basic/complexity/)为 $O(n \log n)$ 。
+归并排序的[时间复杂度](https://oi-wiki.org/basic/complexity/)为 $O(n \log n)$。
 
 ---
 

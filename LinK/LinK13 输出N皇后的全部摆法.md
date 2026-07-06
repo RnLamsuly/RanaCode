@@ -44,9 +44,9 @@ void dfs(int k)
 	}
 	for(int i=1;i<=n;i++)
 	{
-		if(flag[i])continue; //若这一行已放置了旗子，则跳过
+		if(flag[i])continue; //若这一行已放置了棋子，则跳过
 		int con=0;	
-		for(int j=1;j<=k;++j) //与已放置的旗子依次比较，判断是否位于同一斜线
+		for(int j=1;j<=k;++j) //与已放置的棋子依次比较，判断是否位于同一斜线
 		{
 			if(k+1-j==i-get[j])
 			{
